@@ -1,0 +1,167 @@
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>المشروع امنية الغزالي (Backup 1771094406098)</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css"><link rel="stylesheet" href="/assets/css/styles.min.css?h=0a537a44f222162ec09bab574d8f3f1a"></head><body><!-- Start: Navbar With Button --><nav class="navbar navbar-expand-md fixed-top bg-body py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navcol-1" style="text-align: left;color: rgb(41,35,33);font-weight: bold;font-style: italic;"><ul class="navbar-nav me-auto"><li class="nav-item"></li><li class="nav-item"></li><li class="nav-item"></li></ul><ul class="navbar-nav"><li class="nav-item"></li><li class="nav-item"></li><li class="nav-item"></li><li class="nav-item"></li><li class="nav-item"><a class="nav-link" href="/تواصل%20معنا.html" style="color: var(--bs-orange);">تواصل معنا</a></li><li class="nav-item"><a class="nav-link" href="/خدماتنا.html" style="color: var(--bs-orange);">خدماتنا</a></li><li class="nav-item"><a class="nav-link" href="/من%20نحن.html" style="color: var(--bs-orange);">&nbsp;من نحن</a></li><li class="nav-item"><a class="nav-link" href="/الرئيسية.html" style="color: var(--bs-orange);">الصفحة الرئيسية</a></li></ul></div></div></nav><!-- End: Navbar With Button --><div class="booking-wrapper" style="background-color: #ffffff; min-height: 100vh; padding-top: 130px; padding-bottom: 100px; direction: rtl; font-family: 'Segoe UI', Tahoma, sans-serif;">
+    <div class="container">
+        <h2 class="text-center mb-5" style="color: #001f3f; font-weight: bold; font-size: 32px;">أدخل تفاصيل رحلة الطيران</h2>
+        <div class="row justify-content-center g-4">
+            <div class="col-md-10 text-center mb-4">
+                <div class="trip-type-wrapper">
+                    <div class="trip-box" id="trip-round" onclick="selectTrip('round')">
+                        <span class="indicator"></span> ذهاب وعودة
+                    </div>
+                    <div class="trip-box" id="trip-one" onclick="selectTrip('one')">
+                        <span class="indicator"></span> ذهاب فقط
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="luxury-card">
+                    <label class="luxury-label">تحديد الوجهات</label>
+                    <div class="input-container">
+                        <input type="text" id="fromCity" placeholder="من مدينة المغادرة" class="luxury-input">
+                        <div class="navy-divider"></div>
+                        <input type="text" id="toCity" placeholder="إلى مدينة الوصول" class="luxury-input">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="luxury-card">
+                    <label class="luxury-label">تاريخ الرحلة</label>
+                    <div class="input-container">
+                        <div class="date-box-wrapper" onclick="openPicker('depDate')">
+                           <span id="depLabel" class="date-placeholder">تاريخ الذهاب</span>
+                           <input type="date" id="depDate" class="hidden-date-input" onchange="updateLabel(this, 'depLabel')">
+                        </div>
+                        <div class="navy-divider" id="return-divider"></div>
+                        <div class="date-box-wrapper" id="return-date-container" onclick="openPicker('retDate')">
+                           <span id="retLabel" class="date-placeholder">تاريخ العودة</span>
+                           <input type="date" id="retDate" class="hidden-date-input" onchange="updateLabel(this, 'retLabel')">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10 text-center mt-5">
+                <label style="color: #001f3f; font-weight: bold; font-size: 22px; display: block; margin-bottom: 25px;">عدد المقاعد</label>
+                <div class="seats-flex">
+                    <div class="seat-option" id="seat-1" onclick="selectSeat('1')">
+                        <div class="circle-box"><i class="fas fa-user"></i></div>
+                        <span class="seat-label">مقعد واحد</span>
+                    </div>
+                    <div class="seat-option" id="seat-2" onclick="selectSeat('2')">
+                        <div class="circle-box"><i class="fas fa-user-friends"></i></div>
+                        <span class="seat-label">مقعدين</span>
+                    </div>
+                    <div class="seat-option" id="seat-3" onclick="selectSeat('3 فأكثر')">
+                        <div class="circle-box"><i class="fas fa-users"></i></div>
+                        <span class="seat-label">3 فأكثر</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center mt-5">
+                <p id="error-msg" style="color: #d9534f; font-weight: bold; display: none; margin-bottom: 15px;">⚠️ يرجى إكمال جميع الحقول قبل المتابعة</p>
+                <button onclick="validateAndGo()" class="final-submit-btn">متابعة الحجز</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .luxury-card { background-color: #001f3f !important; padding: 40px 30px; border-radius: 25px; }
+    .luxury-label { color: #ff8c00; font-weight: bold; font-size: 20px; display: block; margin-bottom: 25px; text-align: center; }
+    .input-container { background: white; border-radius: 15px; display: flex; align-items: center; padding: 5px; height: 60px; }
+    .navy-divider { width: 3px; background-color: #001f3f; height: 70%; margin: 0 10px; border-radius: 10px; }
+    .luxury-input { width: 100%; border: none; background: transparent; color: #001f3f; font-weight: bold; text-align: center; outline: none; }
+    .date-box-wrapper { width: 100%; text-align: center; cursor: pointer; position: relative; }
+    .date-placeholder { color: #999; font-weight: normal; font-size: 16px; pointer-events: none; }
+    .hidden-date-input { position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+    .trip-type-wrapper { display: flex; justify-content: center; gap: 25px; }
+    .trip-box { background: #001f3f; color: white; padding: 15px 40px; border-radius: 15px; cursor: pointer; display: flex; align-items: center; gap: 15px; font-weight: bold; transition: 0.3s; }
+    .indicator { width: 18px; height: 18px; border: 2px solid white; border-radius: 50%; }
+    .seats-flex { display: flex; justify-content: center; gap: 70px; }
+    .seat-option { cursor: pointer; text-align: center; transition: 0.4s; }
+    .circle-box { width: 90px; height: 90px; background: #001f3f; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 12px; transition: 0.3s; border: 3px solid transparent; }
+    .seat-label { color: #001f3f; font-weight: bold; font-size: 18px; }
+    .active-item { border: 2px solid #ff8c00; }
+    .active-item .indicator, .active-seat .circle-box { background-color: #ff8c00 !important; border-color: #ff8c00; }
+    .hidden-item { display: none !important; }
+    .final-submit-btn { background-color: #ff8c00 !important; color: white !important; padding: 18px 80px; border-radius: 50px; font-weight: bold; font-size: 22px; border: none; cursor: pointer; transition: 0.3s; }
+</style>
+
+<script>
+    let currentTrip = "";
+    let currentSeat = "";
+
+    function openPicker(id) { document.getElementById(id).showPicker(); }
+    function updateLabel(input, labelId) {
+        if (input.value) {
+            document.getElementById(labelId).innerText = input.value;
+            document.getElementById(labelId).style.color = "#001f3f";
+            document.getElementById(labelId).style.fontWeight = "bold";
+        }
+    }
+
+    function selectTrip(type) {
+        currentTrip = (type === 'round' ? 'ذهاب وعودة' : 'ذهاب فقط');
+        
+        // الجزء المسؤول عن الإخفاء
+        if (type === 'one') {
+            document.getElementById('return-date-container').style.display = 'none';
+            document.getElementById('return-divider').style.display = 'none';
+        }
+
+        document.querySelectorAll('.trip-box').forEach(box => {
+            if (box.id === 'trip-' + type) {
+                box.classList.add('active-item'); box.classList.remove('hidden-item');
+                box.onclick = () => resetTrips();
+            } else { box.classList.add('hidden-item'); }
+        });
+    }
+
+    function resetTrips() {
+        currentTrip = "";
+        // إظهار حقل العودة مرة أخرى عند الضغط للرجوع
+        document.getElementById('return-date-container').style.display = 'block';
+        document.getElementById('return-divider').style.display = 'block';
+
+        document.querySelectorAll('.trip-box').forEach(box => {
+            box.classList.remove('active-item', 'hidden-item');
+            box.onclick = function() { selectTrip(this.id.split('-')[1]); };
+        });
+    }
+
+    function selectSeat(num) {
+        currentSeat = num;
+        document.querySelectorAll('.seat-option').forEach(seat => {
+            if (seat.id === 'seat-' + num) {
+                seat.classList.add('active-seat'); seat.classList.remove('hidden-item');
+                seat.onclick = () => resetSeats();
+            } else { seat.classList.add('hidden-item'); }
+        });
+    }
+
+    function resetSeats() {
+        currentSeat = "";
+        document.querySelectorAll('.seat-option').forEach(seat => {
+            seat.classList.remove('active-seat', 'hidden-item');
+            seat.onclick = function() { selectSeat(this.id.split('-')[1]); };
+        });
+    }
+
+ function validateAndGo() {
+    const from = document.getElementById('fromCity').value;
+    const to = document.getElementById('toCity').value;
+    const date1 = document.getElementById('depDate').value;
+    const date2 = document.getElementById('retDate').value;
+
+    if (!from || !to || !date1) {
+        document.getElementById('error-msg').style.display = 'block';
+    } else {
+        localStorage.setItem("category", "flight");
+        localStorage.setItem("F_FROM", from);
+        localStorage.setItem("F_TO", to);
+        localStorage.setItem("F_DATE", date1);
+        localStorage.setItem("F_RETURN", date2 ? date2 : "لا يوجد");
+        localStorage.setItem("F_TYPE", currentTrip);
+        localStorage.setItem("F_SEATS", currentSeat);
+        window.location.href = "/متابعة%20الحجز.html";
+    }
+}
+</script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="/assets/js/script.min.js?h=35a745003519d0480832903c736bc4ec"></script></body></html>

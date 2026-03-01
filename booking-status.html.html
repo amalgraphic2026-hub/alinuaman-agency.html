@@ -1,0 +1,145 @@
+<!DOCTYPE html><html data-bs-theme="light" lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><title>المشروع امنية الغزالي (Backup 1771094406098)</title><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"><link rel="stylesheet" href="/assets/css/styles.min.css?h=0a537a44f222162ec09bab574d8f3f1a"></head><body><!-- Start: Navbar With Button --><nav class="navbar navbar-expand-md fixed-top bg-body py-3"><div class="container"><a class="navbar-brand d-flex align-items-center" href="#"></a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button><div class="collapse navbar-collapse" id="navcol-1" style="font-weight: bold;font-style: italic;text-align: left;color: rgb(41,35,33);"><ul class="navbar-nav me-auto"><li class="nav-item"></li><li class="nav-item"></li><li class="nav-item"></li></ul><ul class="navbar-nav"><li class="nav-item"></li><li class="nav-item"></li><li class="nav-item"></li><li class="nav-item"></li><li class="nav-item"><a class="nav-link" href="/تواصل%20معنا.html" style="color: var(--bs-orange);">تواصل معنا</a></li><li class="nav-item"><a class="nav-link" href="/خدماتنا.html" style="color: var(--bs-orange);">خدماتنا</a></li><li class="nav-item"><a class="nav-link" href="/من%20نحن.html" style="color: var(--bs-orange);">&nbsp;من نحن</a></li><li class="nav-item"><a class="nav-link" href="/الرئيسية.html" style="color: var(--bs-orange);">الصفحة الرئيسية</a></li></ul></div></div></nav><!-- End: Navbar With Button --><div class="booking-final-step" style="background-color:#ffffff; min-height:100vh; padding-top:130px; padding-bottom:80px; direction:rtl; font-family:'Segoe UI', Tahoma, sans-serif;">
+    <div class="container">
+        <h2 class="text-center mb-5" style="color: #001f3f; font-weight: bold;">إتمام بيانات المسافر</h2>
+        
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <div class="form-container" style="background-color: #ffffff; padding: 30px; border-radius: 20px; box-shadow: 0 5px 25px rgba(0,0,0,0.1);">
+                    <form id="travelForm">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <label style="color: #001f3f; font-weight: bold; margin-bottom: 8px;">الاسم الكامل (بالعربي):</label>
+                                <input id="nameAr" class="navy-input" type="text" placeholder="اكتب اسمك كما في الهوية" />
+                            </div>
+                            <div class="col-md-6">
+                                <label style="color: #001f3f; font-weight: bold; margin-bottom: 8px;">الاسم الكامل (بالإنجليزي):</label>
+                                <input id="nameEn" class="navy-input" type="text" placeholder="Full Name as in Passport" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label style="color: #001f3f; font-weight: bold; margin-bottom: 8px;">رقم الجواز :</label>
+                                <input id="passportNum" class="navy-input" type="text" placeholder="رقم جواز السفر" />
+                            </div>
+                            <div class="col-md-6">
+                                <label style="color: #001f3f; font-weight: bold; margin-bottom: 8px;">تاريخ انتهاء الجواز:</label>
+                                <input id="passportExpiry" class="navy-input" type="date" onfocus="this.showPicker()" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <label style="color: #001f3f; font-weight: bold; margin-bottom: 8px;">رقم الواتساب:</label>
+                                <input id="userPhone" class="navy-input" type="tel" placeholder="77XXXXXXX" />
+                            </div>
+                            <div class="col-md-6">
+                                <label style="color: #001f3f; font-weight: bold; margin-bottom: 8px;">غرض السفر:</label>
+                                <select id="travelReason" class="navy-input">
+                                    <option value="عمرة">عمرة</option>
+                                    <option value="حج">حج</option>
+                                    <option value="زيارة عائلية">زيارة عائلية</option>
+                                    <option value="سياحة">سياحة</option>
+                                    <option value="علاج">علاج</option>
+                                    <option value="عمل">عمل</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 text-center mt-5 d-flex justify-content-center gap-3">
+                                <button onclick="sendFinalReport()" class="btn-confirm" type="button">تأكيد الحجز وإرسال الطلب</button>
+                                <button onclick="window.location.href='/خدمات%20النقل%20والسفر.html'" class="btn-modify" type="button">تعديل الحجز</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .navy-input { width: 100%; padding: 14px; border: 2px solid #001f3f; border-radius: 12px; outline: none; font-weight: bold; color: #001f3f; font-size: 16px; }
+    .btn-confirm { background-color: #ff8c00; color: white; padding: 16px 40px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; font-size: 18px; transition: 0.3s; }
+    .btn-confirm:hover { background-color: #e67e00; transform: scale(1.05); }
+    .btn-modify { background-color: #001f3f; color: white; padding: 16px 40px; border-radius: 50px; border: none; font-weight: bold; cursor: pointer; font-size: 18px; transition: 0.3s; }
+    .btn-modify:hover { background-color: #001124; transform: scale(1.05); }
+</style>
+
+<script>
+ function sendFinalReport() {
+    try {
+        // 1. جلب بيانات العميل الأساسية من النموذج
+        const nameAr = document.getElementById("nameAr").value.trim();
+        const phone = document.getElementById("userPhone").value.trim();
+        const reason = document.getElementById("travelReason").value;
+
+        if (!nameAr || !phone) {
+            alert("لطفاً، أدخل الاسم ورقم الهاتف لإتمام الحجز");
+            return;
+        }
+
+        // 2. معرفة نوع الصفحة التي جاء منها العميل
+        const category = localStorage.getItem("category");
+        let tripDetails = "";
+
+        // --- الحالة الأولى: رحلة الطيران ---
+        if (category === "flight") {
+            tripDetails = `*✈️ تفاصيل رحلة الطيران:*
+- نوع الرحلة: ${localStorage.getItem("F_STYLE") || "ذهاب فقط"}
+- من: ${localStorage.getItem("F_FROM") || "غير محدد"}
+- إلى: ${localStorage.getItem("F_TO") || "غير محدد"}
+- الذهاب: ${localStorage.getItem("F_DATE") || "غير محدد"}
+- العودة: ${localStorage.getItem("F_RETURN") || "لا يوجد"}
+- المقاعد: ${localStorage.getItem("F_SEATS") || "1"}`;
+        } 
+
+        // --- الحالة الثانية: رحلة الباص العادي (التي كانت تظهر غير محددة) ---
+        else if (category === "bus") {
+            tripDetails = `*🚌 تفاصيل رحلة الباص (النقل الجماعي):*
+- نوع الرحلة: ${localStorage.getItem("bus_style") || "ذهاب فقط"}
+- ساغادر من: ${localStorage.getItem("bus_from") || "غير محدد"}
+- ساذهب إلى: ${localStorage.getItem("bus_to") || "غير محدد"}
+- فئة الحافلة: ${localStorage.getItem("bus_type") || "عادي/VIP"}
+- موعد السفر: ${localStorage.getItem("bus_dep_date") || "غير محدد"}
+- تاريخ العودة: ${localStorage.getItem("bus_ret_date") || "لا يوجد"}
+- عدد المقاعد: ${localStorage.getItem("bus_seats") || "1"}`;
+        } 
+
+        // --- الحالة الثالثة: رحلة الباص الخاص ---
+        else if (category === "private_bus") {
+            tripDetails = `*🚗 تفاصيل رحلة الباص الخاص/السيارة:*
+- نوع الرحلة: ${localStorage.getItem("p_trip_style") || "ذهاب فقط"}
+- من مدينة: ${localStorage.getItem("p_from") || "غير محدد"}
+- إلى مدينة: ${localStorage.getItem("p_to") || "غير محدد"}
+- حجم السيارة: ${localStorage.getItem("p_car_type") || "غير محدد"}
+- تاريخ الذهاب: ${localStorage.getItem("p_date") || "غير محدد"}
+- تاريخ العودة: ${localStorage.getItem("p_date") || "غير محدد"}
+- عدد الركاب: ${localStorage.getItem("p_passengers") || "غير محدد"}`;
+        } 
+
+        else {
+            tripDetails = "*⚠️ عذراً، لم يتم العثور على تفاصيل الرحلة*";
+        }
+
+        // 3. تجميع الرسالة النهائية
+        const message = `
+*طلب حجز جديد* ✅
+---------------------------
+${tripDetails}
+---------------------------
+*👤 بيانات المسافر الشخصية:*
+- الاسم: ${nameAr}
+- باالانجليزي الاسم: ${nameAr}
+- الهاتف: ${phone}
+- رقم الجواز: ${phone}
+- تاريخ انتهاء الجواز: ${phone}
+- الغرض: ${reason}
+---------------------------`.trim();
+
+        const officeNumber = "967770784040";
+        const whatsappUrl = `https://api.whatsapp.com/send?phone=${officeNumber}&text=${encodeURIComponent(message)}`;
+        
+        // 4. الإرسال عبر واتساب
+        window.open(whatsappUrl, '_blank');
+
+    } catch (e) {
+        alert("حدث خطأ تقني، يرجى مراجعة إدخال البيانات");
+    }
+}
+</script><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script><script src="/assets/js/script.min.js?h=35a745003519d0480832903c736bc4ec"></script></body></html>
